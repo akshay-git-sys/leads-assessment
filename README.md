@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lead Management Application
+
+This project is a **Next.js** frontend application designed to create, view, and manage leads. It includes both public and internal UIs:
+
+- A **public form** for prospects to submit their information.
+- An **internal dashboard** for authorized users to view and update lead information.
+
+## Features
+
+### Public Lead Form
+
+- A publicly available form for prospects to fill in with required fields:
+  - First Name
+  - Last Name
+  - Email
+  - LinkedIn URL
+  - Visa type (multiple select options)
+  - Resume/CV upload (file)
+  - Open text input
+- Displays a confirmation message upon successful submission.
+
+### Internal Leads Dashboard
+
+- A table to display all submitted leads, accessible only by authenticated users.
+- Table functionalities:
+  - **Search**: Search by name or country.
+  - **Status filter**: Filter leads by their status (`Pending`, `Reached Out`).
+  - **Pagination**: View leads with pagination.
+  - **Sortability**: Sort leads by various columns such as name, date, or status.
+  - **Update status**: Transition a lead from **`PENDING`** to **`REACHED_OUT`**.
+
+### Admin Panel
+
+- A sidebar on the left with links for **Leads** and **Settings**.
+- Main content area with a **Leads List** that includes sorting, filtering, and pagination.
+
+## Technology Stack
+
+- **Next.js**: The core framework used to build the application.
+- **React Table**: For rendering the leads list with sorting, filtering, and pagination.
+- **Material UI**: For UI components and styling.
+- **JSON Forms**: For rendering the lead form in a configuration-driven way.
+- **Styled-Components**: For creating responsive and styled UI components.
+- **TypeScript**: For static type checking and improved developer experience.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Make sure you have the following installed on your machine:
+
+- **Node.js** (v14 or higher)
+- **npm** or **yarn**
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/lead-management-app.git
+   cd lead-management-app
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   # or if you prefer yarn
+   yarn install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+
+   Open [http://localhost:3000/admin](http://localhost:3000/admin) with your browser to see the Lead List admin panel. Login credentials are -
+   Username: admin / password: password
+
+### File Structure
+
+```
+.
+├── app
+│   ├── api
+│   │   └── leads
+│   │       └── route.ts   # API routes for fetching and updating leads
+│   ├── admin              # Admin dashboard
+│   ├── leadForm.tsx       # Lead Form component
+│   ├── LeadsList.tsx      # Leads table component
+│   └── page.tsx           # Home page
+├── components
+│   └── Sidebar.tsx        # Admin panel sidebar
+├── public
+│   └── logo.png           # Company logo
+├── styles
+│   └── global.css         # Global CSS
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### API Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **GET `/api/leads`**: Fetch all leads (mocked).
+- **POST `/api/leads`**: Submit a new lead.
+- **PUT `/api/leads`**: Update a lead's status.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Building for Production
 
-## Learn More
+To create an optimized production build, run:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+# or
+yarn build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After the build completes, start the server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+# or
+yarn start
+```
 
-## Deploy on Vercel
+The app will run in production mode.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Public Form**: Uses **JSON Forms** to generate the form dynamically from a schema.
+- **Admin Panel**: Protected by a mock authentication mechanism.
+- **Leads List**: Implemented using **React Table** for powerful sorting, filtering, and pagination features.
+- **State Management**: The application is primarily driven by React state hooks without external state management libraries.
+
+## Future Improvements
+
+- Implement real authentication (e.g., OAuth, JWT).
+- Add support for editing leads directly within the dashboard.
+- Add better form validation and error handling.
+- Unit Testing
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Feel free to adjust the repository URL and any additional details specific to your project!
