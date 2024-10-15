@@ -1,6 +1,6 @@
 "use client"; // Mark this as a client component
 import React, { useEffect, useState } from 'react';
-import { useTable, useGlobalFilter, usePagination, useFilters, TableInstance } from 'react-table';
+import { useTable, Column, useGlobalFilter, usePagination, useFilters, TableInstance } from 'react-table';
 import styled from 'styled-components';
 
 // Styled components for UI
@@ -90,7 +90,8 @@ interface Lead {
 }
 
 const LeadsList: React.FC = () => {
-  const [leads, setLeads] = useState<Lead[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [leads, setLeads] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
 
@@ -103,8 +104,8 @@ const LeadsList: React.FC = () => {
     fetchLeads();
   }, []);
 
-  
-  const columns = React.useMemo(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const columns = React.useMemo<Column<any>[]>(
     () => [
       {
         Header: 'Name',
@@ -133,8 +134,8 @@ const LeadsList: React.FC = () => {
     ],
     [leads]
   );
-  
-  const tableInstance: TableInstance<Lead> = useTable(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const tableInstance: TableInstance<any> = useTable(
     {
       columns,
       data: leads,

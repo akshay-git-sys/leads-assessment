@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
 // eslint-disable-next-line
 import mockData from '../../data/mockData.json';
-interface Lead {
-  id: number;
-  name: string;
-  submitted: string;
-  status: 'PENDING' | 'REACHED_OUT';
-  country: string;
-}
+// interface Lead {
+//   id: number;
+//   name: string;
+//   submitted: string;
+//   status: 'PENDING' | 'REACHED_OUT';
+//   country: string;
+// }
 
 
-// Use the Lead interface for type safety
-let leads: Lead[] = [];
-//leads.push(...mockData);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let leads: any[] = [];
+leads.push(...mockData);
 
 export async function POST(request: Request) {
   const data = await request.json();
@@ -22,9 +22,9 @@ export async function POST(request: Request) {
     ...data,
     submitted: new Date().toLocaleString(),
     status: 'PENDING',
-    country: 'Unknown',
+    country: 'United States' // Country will be determined by IP address
   };
-  leads.push(newLead);
+  leads.unshift(newLead);
   return NextResponse.json(newLead);
 }
 

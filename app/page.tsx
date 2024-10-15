@@ -1,9 +1,149 @@
-import LeadForm from './LeadForm';
+"use client";
 
-export default function Home() {
+import React from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
+import LeadForm from './LeadForm'; // Assuming LeadForm is in the components folder
+
+const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+const Banner = styled.div`
+  display: flex;
+  align-items: center;  
+  background-color: #f5f5f5;
+  padding: 50px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+`;
+
+const BannerTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 75%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 48px;
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+`;
+
+const BannerImageContainer = styled.div`
+  width: 25%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const CenteredDiv = styled.div`
+  margin: 50px 0;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    color: #666;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+`;
+
+const HomePage: React.FC = () => {
   return (
-    <div>
+    <HomePageContainer>
+      {/* Banner Section */}
+      <Banner>
+        <BannerImageContainer>
+          <Image
+            src="/images/banner-image.jpg" // Update the image path
+            alt="Immigration Banner"
+            width={600}
+            height={400}
+            layout="responsive"
+          />
+        </BannerImageContainer>
+
+        <BannerTextContainer>
+          <h1>alma</h1>
+          <p>Get An Assessment Of Your Immigration Case</p>
+        </BannerTextContainer>
+      </Banner>
+
+      {/* Centered Text Section */}
+      <CenteredDiv>
+        <h2>Want to understand your visa options?</h2>
+        <p>
+          Submit the form below and our team of experienced attorneys will
+          review your information and send a preliminary assessment of your
+          case based on your goals.
+        </p>
+      </CenteredDiv>
+
+      {/* LeadForm Component */}
       <LeadForm />
-    </div>
+    </HomePageContainer>
   );
-}
+};
+
+export default HomePage;

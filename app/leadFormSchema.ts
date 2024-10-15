@@ -26,7 +26,7 @@ export const leadFormSchema = {
 		title: "Visas You're Interested",
 		items: {
 		  type: "string",
-		  enum: ["-1", "EB-1A", "EB-2-NIW", "I don't know"]
+		  enum: ["O-1", "EB-1A", "EB-2-NIW", "I don't know"]
 		},
 		uniqueItems: true
 	  },
