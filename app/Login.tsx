@@ -1,4 +1,4 @@
-"use client"; // Marking this component as a Client Component
+"use client";
 
 import { useState } from 'react';
 import styled from 'styled-components';

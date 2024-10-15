@@ -18,7 +18,7 @@ const AdminPanel: React.FC = () => {
     <Container>
       <Sidebar>
         <Logo>
-          <img src="/path/to/logo.png" alt="Company Logo" />
+          <span>alma</span>         
         </Logo>
         <Nav>
           <NavItem active={activeItem === '/admin'} onClick={() => handleNavigation('/admin')}>Leads</NavItem>
@@ -32,7 +32,6 @@ const AdminPanel: React.FC = () => {
   );
 };
 
-// Styled Components
 const Container = styled.div`
   display: flex;
   height: 100vh;
@@ -55,8 +54,11 @@ const Sidebar = styled.aside`
 `;
 
 const Logo = styled.div`
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 10px;
+  text-align: left;
+  padding: 15px;
+  font-size: 30px;
+  font-weight: bold;
 
   img {
     max-width: 100%;

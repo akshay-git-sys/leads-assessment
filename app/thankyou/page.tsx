@@ -1,4 +1,3 @@
-// app/thankyou/page.tsx
 import React from 'react';
 
 const ThankYouPage: React.FC = () => {

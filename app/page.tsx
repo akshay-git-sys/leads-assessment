@@ -29,7 +29,7 @@ const BannerTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 75%;
+  width: 40%;
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -39,6 +39,7 @@ const BannerTextContainer = styled.div`
 
   h1 {
     font-size: 48px;
+    font-weight: 700;
 
     @media (max-width: 768px) {
       font-size: 32px;
@@ -117,16 +118,16 @@ const HomePage: React.FC = () => {
         <BannerImageContainer>
           <Image
             src="/images/banner-image.jpg" // Update the image path
-            alt="Immigration Banner"
-            width={600}
-            height={400}
+            alt="Banner Image"
+            width={100}
+            height={100}
             layout="responsive"
           />
         </BannerImageContainer>
 
         <BannerTextContainer>
-          <h1>alma</h1>
-          <p>Get An Assessment Of Your Immigration Case</p>
+          <p>alma</p>
+          <h1>Get An Assessment Of Your Immigration Case</h1>
         </BannerTextContainer>
       </Banner>
 

@@ -1,14 +1,6 @@
 import { NextResponse } from 'next/server';
 // eslint-disable-next-line
 import mockData from '../../data/mockData.json';
-// interface Lead {
-//   id: number;
-//   name: string;
-//   submitted: string;
-//   status: 'PENDING' | 'REACHED_OUT';
-//   country: string;
-// }
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let leads: any[] = [];

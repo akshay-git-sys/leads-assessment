@@ -1,4 +1,3 @@
-// app/leadForm.tsx
 "use client";
 
 import React, { useState } from 'react';

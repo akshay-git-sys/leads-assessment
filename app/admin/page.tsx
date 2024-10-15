@@ -1,5 +1,4 @@
-// app/admin/page.tsx
-"use client"; // Marking this component as a Client Component
+"use client";
 
 import { useEffect, useState } from 'react';
 import Login from '../Login';

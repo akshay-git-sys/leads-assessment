@@ -1,9 +1,8 @@
-"use client"; // Mark this as a client component
+"use client";
 import React, { useEffect, useState } from 'react';
 import { useTable, Column, useGlobalFilter, usePagination, useFilters, TableInstance } from 'react-table';
 import styled from 'styled-components';
 
-// Styled components for UI
 const TableContainer = styled.div`
   padding: 20px;
 `;
@@ -17,7 +16,9 @@ const SearchInput = styled.input`
 
 const Dropdown = styled.select`
   margin-left: 10px;
-  padding: 8px;
+  padding: 13px 10px;
+  margin-bottom: 10px;
+  border-radius:10px;
 `;
 
 const Table = styled.table`
@@ -189,9 +190,10 @@ const LeadsList: React.FC = () => {
 
   return (
     <TableContainer>
-      <h1>Leads List</h1>
+      <h1 style={{ fontWeight: 'bold', fontSize:'20px'}}>Leads</h1>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <SearchInput
+          style={{ border: '2px solid #e5e7eb', borderRadius: '10px' }}
           type="text"
           placeholder="Search by name or country..."
           value={searchTerm}
