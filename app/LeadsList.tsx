@@ -128,7 +128,19 @@ const LeadsList: React.FC = () => {
         accessor: 'actions' as const,
         Cell: ({ row }: { row: { original: Lead } }) => (
           row.original.status === 'PENDING' && (
-            <button onClick={() => changeLeadStatus(row.original.id)}>Mark as Reached Out</button>
+            <button style= {{
+              backgroundColor: '#66bb6a',
+              textTransform:'uppercase',
+              border: 'none',
+              cursor: 'pointer',
+              height: '48px',
+              borderRadius: '10px',
+              width: '100%',
+              textAlign: 'center',
+              color: 'white',
+              lineHeight: '48px',
+              fontSize: '12px'           
+            }} onClick={() => changeLeadStatus(row.original.id)}>Mark as Reached Out</button>
           )
         ),
       },
@@ -190,7 +202,7 @@ const LeadsList: React.FC = () => {
 
   return (
     <TableContainer>
-      <h1 style={{ fontWeight: 'bold', fontSize:'20px'}}>Leads</h1>
+      <h1 style={{ fontWeight: 'bold', fontSize:'20px', marginBottom: '20px'}}>Leads</h1>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <SearchInput
           style={{ border: '2px solid #e5e7eb', borderRadius: '10px' }}
