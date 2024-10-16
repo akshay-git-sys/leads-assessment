@@ -6,16 +6,11 @@ import { JsonForms } from '@jsonforms/react';
 import { materialRenderers, materialCells } from '@jsonforms/material-renderers';
 import { leadFormSchema } from './leadFormSchema';
 import { leadFormUISchema } from './leadFormUISchema';
+import FileUploadControl from './FileUploadControl';
 import { Button, Typography, Container, CircularProgress } from '@mui/material';
 import styled from 'styled-components';
 
-const LeadForm: React.FC = () => {
-  const [formData, setFormData] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);  // State to handle loading
-  const [error, setError] = useState<string | null>(null); // State to handle errors
-
-  const CenteredDiv = styled.div`
+const CenteredDiv = styled.div`
   margin: 50px 0;
   text-align: center;
   max-width: 800px;
@@ -48,6 +43,12 @@ const LeadForm: React.FC = () => {
   }
 `;
 
+const LeadForm: React.FC = () => {
+  const [formData, setFormData] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const handleSubmit = async () => {
     setLoading(true);
     setError(null);
@@ -63,6 +64,10 @@ const LeadForm: React.FC = () => {
     }
   };
 
+  const fileUploadTester = (uischema: any, schema: any) => {
+    return uischema.scope === '#/properties/resume' ? 5 : -1;
+  };
+
   return (
     <Container maxWidth="sm">
       {!submitted ? (
@@ -71,29 +76,32 @@ const LeadForm: React.FC = () => {
             schema={leadFormSchema}
             uischema={leadFormUISchema}
             data={formData}
-            renderers={materialRenderers}
+            renderers={[
+              ...materialRenderers,
+              { tester: fileUploadTester, renderer: FileUploadControl },
+            ]}
             cells={materialCells}
             onChange={({ data }) => setFormData(data)}
           />
-          
+
           {error && (
             <Typography color="error" variant="body2" gutterBottom>
               {error}
             </Typography>
           )}
-          
+
           <Button
             variant="contained"
             color="primary"
             onClick={handleSubmit}
             style={{ marginTop: '20px' }}
-            disabled={loading} // Disable button while loading
+            disabled={loading}
             fullWidth
           >
-            {loading ? <CircularProgress size={24} /> : "Submit"} {/* Show loading spinner */}
+            {loading ? <CircularProgress size={24} /> : "Submit"}
           </Button>
         </>
-      ) : (        
+      ) : (
         <CenteredDiv>
           <Typography variant="h6" gutterBottom>
             Thank you for submitting the form!
@@ -102,13 +110,13 @@ const LeadForm: React.FC = () => {
             variant="contained"
             color="primary"
             onClick={() => {
-              setFormData({}); // Reset form data
-              setSubmitted(false); // Allow resubmission
+              setFormData({});
+              setSubmitted(false);
             }}
           >
             Go back to homepage
           </Button>
-      </CenteredDiv>
+        </CenteredDiv>
       )}
     </Container>
   );
