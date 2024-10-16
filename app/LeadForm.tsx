@@ -64,6 +64,7 @@ const LeadForm: React.FC = () => {
     }
   };
 
+  // eslint-disable-next-line
   const fileUploadTester = (uischema: any, schema: any) => {
     return uischema.scope === '#/properties/resume' ? 5 : -1;
   };

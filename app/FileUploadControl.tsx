@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { withJsonFormsControlProps } from '@jsonforms/react';
 import { Input, FormControl, FormHelperText, InputLabel, TextField, Button } from '@mui/material';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FileUploadControl = (props: any) => {
   const { handleChange, path, visible, label, required, description, errors } = props;
   const [fileName, setFileName] = useState<string | null>(null);
@@ -11,6 +12,7 @@ const FileUploadControl = (props: any) => {
     if (file) {
       setFileName(file.name);
       const reader = new FileReader();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       reader.onload = (e: any) => {
         handleChange(path, e.target.result); // Store the file content as base64 string
       };
