@@ -3,7 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import LeadForm from './LeadForm'; // Assuming LeadForm is in the components folder
+import LeadForm from './LeadForm';
 
 const HomePageContainer = styled.div`
   display: flex;
