@@ -15,7 +15,7 @@ const HomePageContainer = styled.div`
 const Banner = styled.div`
   display: flex;
   align-items: center;  
-  background-color: #f5f5f5;
+  background-color: #D9DEA6;
   padding: 50px;
   width: 100%;
 
@@ -29,7 +29,7 @@ const BannerTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 40%;
+  width: 40%;  
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -51,7 +51,7 @@ const BannerTextContainer = styled.div`
   }
 
   p {
-    font-size: 18px;
+    font-size: 32px;
     margin-top: 20px;
 
     @media (max-width: 768px) {
@@ -65,7 +65,7 @@ const BannerTextContainer = styled.div`
 `;
 
 const BannerImageContainer = styled.div`
-  width: 25%;
+  width: 26%;
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -117,7 +117,7 @@ const HomePage: React.FC = () => {
       <Banner>
         <BannerImageContainer>
           <Image
-            src="/images/banner-image.jpg" // Update the image path
+            src="/images/green-coin-stack.png" // Update the image path
             alt="Banner Image"
             width={100}
             height={100}
@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
         </BannerImageContainer>
 
         <BannerTextContainer>
-          <p>alma</p>
+          <p style={{fontWeight: 'bold'}}>alma</p>
           <h1>Get An Assessment Of Your Immigration Case</h1>
         </BannerTextContainer>
       </Banner>
