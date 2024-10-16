@@ -82,6 +82,7 @@ const CenteredDiv = styled.div`
   text-align: center;
   max-width: 800px;
   padding: 0 20px;
+  font-weight:bold;  
 
   h2 {
     font-size: 36px;
@@ -97,8 +98,7 @@ const CenteredDiv = styled.div`
   }
 
   p {
-    font-size: 18px;
-    color: #666;
+    font-size: 16px;   
 
     @media (max-width: 768px) {
       font-size: 16px;
